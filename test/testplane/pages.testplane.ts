@@ -2,7 +2,7 @@ describe('страницы', () => {
   it(`на ширине меньше 576px навигационное меню должно скрываться за "гамбургер".
       При выборе элемента из меню "гамбургера", меню должно закрываться`, async ({browser}) => {
       
-      await browser.url('http://localhost:3000/hw/store/?bug_id="4"');
+      await browser.url('http://localhost:3000/hw/store/');
       await browser.setWindowSize(575, 1080);
       const navbar: WebdriverIO.Element = await browser.$('.navbar');
       await navbar.waitForDisplayed();
@@ -16,7 +16,7 @@ describe('страницы', () => {
   })
 
   it('вёрстка должна адаптироваться под ширину экрана', async ({browser}) => {
-      await browser.url('http://localhost:3000/hw/store');
+      await browser.url('http://localhost:3000/hw/store/');
       const page: WebdriverIO.Element  = await browser.$('.Application');
       await browser.setWindowSize(575, 1080);
       await page.assertView('width-570');
